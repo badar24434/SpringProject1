@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout/main-layout :: layout(${pageTitle}, ~{::section})}">
+<body>
+<section>
+    <div class="jumbotron bg-light p-5 rounded">
+        <h1 class="display-4">Welcome to Spring Boot Web Demo!</h1>
+        <p class="lead">This is a simple Spring Boot application with Thymeleaf and Bootstrap.</p>
+        <hr class="my-4">
+        <p>You can add messages below and they will be displayed in the list.</p>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="card-title mb-0">Add a New Message</h5>
+                </div>
+                <div class="card-body">
+                    <form th:action="@{/addMessage}" th:object="${message}" method="post">
+                        <div class="mb-3">
+                            <label for="title" class="form-label">Title</label>
+                            <input type="text" class="form-control" id="title" th:field="*{title}" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="content" class="form-label">Content</label>
+                            <textarea class="form-control" id="content" rows="3" th:field="*{content}" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-success text-white">
+                    <h5 class="card-title mb-0">Messages</h5>
+                </div>
+                <div class="card-body">
+                    <div th:if="${messages.empty}" class="alert alert-info">
+                        No messages yet. Add one!
+                    </div>
+                    <div th:each="msg, status : ${messages}" class="card mb-3">
+                        <div class="card-header" th:text="${msg.title}">Title</div>
+                        <div class="card-body">
+                            <p class="card-text" th:text="${msg.content}">Content</p>
+                        </div>
+                        <div class="card-footer text-muted">
+                            Message #<span th:text="${status.count}">1</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

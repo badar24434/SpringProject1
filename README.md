@@ -1,5 +1,4 @@
 
-```markdown
 # Spring Boot Web Lab 6
 
 ## Running the Application
@@ -53,4 +52,4 @@ Once the application is running:
 - Bootstrap UI
 - Message form submission and display
 - RESTful endpoint structure
-```
+

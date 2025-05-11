@@ -40,16 +40,3 @@
 Once the application is running:
 - Access the web application at: http://localhost:8080
 - The application allows you to add and view messages through a web interface
-
-## Available Endpoints
-- Main application: http://localhost:8080
-- Health check: http://localhost:8080/actuator/health
-- Info: http://localhost:8080/actuator/info
-- Metrics: http://localhost:8080/actuator/metrics
-
-## Project Features
-- Spring Boot web application with Thymeleaf templating
-- Bootstrap UI
-- Message form submission and display
-- RESTful endpoint structure
-
